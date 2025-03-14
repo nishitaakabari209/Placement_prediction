@@ -5,8 +5,8 @@ import numpy as np
 app = Flask(__name__)
 
 # Load trained model and scaler
-model = pickle.load(open('placement_model.pkl', 'rb'))
-scaler = pickle.load(open('scaler.pkl', 'rb'))
+model = pickle.load(open('app/placement_model.pkl', 'rb'))
+scaler = pickle.load(open('app/scaler.pkl', 'rb'))
 
 @app.route('/')
 def home():

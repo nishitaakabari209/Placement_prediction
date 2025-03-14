@@ -8,90 +8,87 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <style>
         body {
-            /* Replace with your actual image filename */
             background-image: url('https://img.freepik.com/premium-photo/pastel-tone-purple-pink-blue-gradient-defocused-abstract-photo-smooth-lines-pantone-color-background_49683-4613.jpg');
-            background-size: cover; /* Ensures the image covers the entire screen */
+            background-size: cover;
             background-position: center;
             background-repeat: no-repeat;
-            background-attachment: fixed; /* Keeps the background fixed while scrolling */
+            background-attachment: fixed;
         }
-        .container {
-            background: rgba(242, 243, 248, 0.315); /* Light transparent white background */
+        .container-custom {
+            background: rgba(242, 243, 248, 0.8); /* Light transparent background */
             padding: 20px;
             border-radius: 10px;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            max-width: 600px; /* Adjust container size */
         }
     </style>
 </head>
 <body>
-    <div class="container p-4" style="width: 110vh;">
-        <h2 class="text-center fw-bold "><svg xmlns="http://www.w3.org/2000/svg" width="35" height="35" fill="currentColor" class="bi bi-mortarboard-fill me-2" viewBox="0 0 16 16">
-            <path d="M8.211 2.047a.5.5 0 0 0-.422 0l-7.5 3.5a.5.5 0 0 0 .025.917l7.5 3a.5.5 0 0 0 .372 0L14 7.14V13a1 1 0 0 0-1 1v2h3v-2a1 1 0 0 0-1-1V6.739l.686-.275a.5.5 0 0 0 .025-.917z"/>
-            <path d="M4.176 9.032a.5.5 0 0 0-.656.327l-.5 1.7a.5.5 0 0 0 .294.605l4.5 1.8a.5.5 0 0 0 .372 0l4.5-1.8a.5.5 0 0 0 .294-.605l-.5-1.7a.5.5 0 0 0-.656-.327L8 10.466z"/>
-          </svg><span class="text-dark">Placement Prediction System</span></h2>
-          <hr>
-        <form action="/predict" method="post">
-            <div class="row mb-4">
-                <div class="col">
-                    <label class="fw-semibold fs-5 form-label" >CGPA:</label>
-                    <input type="number" class="form-control " step="0.01" name="CGPA" required>
+    <div class="container-fluid d-flex justify-content-center align-items-center min-vh-100">
+        <div class="container-custom p-4 w-100">
+            <h2 class="text-center fw-bold">
+                <svg xmlns="http://www.w3.org/2000/svg" width="35" height="35" fill="currentColor" class="bi bi-mortarboard-fill me-2" viewBox="0 0 16 16">
+                    <path d="M8.211 2.047a.5.5 0 0 0-.422 0l-7.5 3.5a.5.5 0 0 0 .025.917l7.5 3a.5.5 0 0 0 .372 0L14 7.14V13a1 1 0 0 0-1 1v2h3v-2a1 1 0 0 0-1-1V6.739l.686-.275a.5.5 0 0 0 .025-.917z"/>
+                    <path d="M4.176 9.032a.5.5 0 0 0-.656.327l-.5 1.7a.5.5 0 0 0 .294.605l4.5 1.8a.5.5 0 0 0 .372 0l4.5-1.8a.5.5 0 0 0 .294-.605l-.5-1.7a.5.5 0 0 0-.656-.327L8 10.466z"/>
+                </svg>
+                <span class="text-dark">Placement Prediction System</span>
+            </h2>
+            <hr>
+            <form action="/predict" method="post">
+                <div class="row g-3">
+                    <div class="col-md-6 col-12">
+                        <label class="fw-semibold fs-6 form-label">CGPA:</label>
+                        <input type="number" class="form-control" step="0.01" name="CGPA" required>
+                    </div>
+                    <div class="col-md-6 col-12">
+                        <label class="fw-semibold fs-6 form-label">Internships:</label>
+                        <input type="number" class="form-control" name="Internships" required>
+                    </div>
+                    <div class="col-md-6 col-12">
+                        <label class="fw-semibold fs-6 form-label">Projects:</label>
+                        <input type="number" class="form-control" name="Projects" required>
+                    </div>
+                    <div class="col-md-6 col-12">
+                        <label class="fw-semibold fs-6 form-label">Workshops/Certifications:</label>
+                        <input type="number" class="form-control" name="Workshops" required>
+                    </div>
+                    <div class="col-md-6 col-12">
+                        <label class="fw-semibold fs-6 form-label">Aptitude Test Score:</label>
+                        <input type="number" class="form-control" name="AptitudeTestScore" required>
+                    </div>
+                    <div class="col-md-6 col-12">
+                        <label class="fw-semibold fs-6 form-label">Soft Skills Rating:</label>
+                        <input type="number" class="form-control" step="0.1" name="SoftSkillsRating" required>
+                    </div>
+                    <div class="col-md-6 col-12">
+                        <label class="fw-semibold fs-6 form-label">Extracurricular Activities (1=Yes, 0=No):</label>
+                        <input type="number" class="form-control" name="ExtracurricularActivities" required>
+                    </div>
+                    <div class="col-md-6 col-12">
+                        <label class="fw-semibold fs-6 form-label">Placement Training (1=Yes, 0=No):</label>
+                        <input type="number" class="form-control" name="PlacementTraining" required>
+                    </div>
+                    <div class="col-md-6 col-12">
+                        <label class="fw-semibold fs-6 form-label">SSC Percentage:</label>
+                        <input type="number" class="form-control" step="0.1" name="SSC_Marks" required>
+                    </div>
+                    <div class="col-md-6 col-12">
+                        <label class="fw-semibold fs-6 form-label">HSC Percentage:</label>
+                        <input type="number" class="form-control" step="0.1" name="HSC_Marks" required>
+                    </div>
                 </div>
-                <div class="col">
-                    <label for="formGroupExampleInput" class="fw-semibold fs-5 form-label" >Internships:</label>
-                    <input type="number"  class="form-control" name="Internships" required>
+                <div class="mt-4">
+                    <button type="submit" class="btn btn-primary w-100">Predict</button>
                 </div>
-            </div>
-            <div class="row mb-4">
-                <div class="col">
-                    <label class="fw-semibold fs-5 form-label" >Projects:</label>
-            <input type="number"  class="form-control"name="Projects" required>
-                </div>
-                <div class="col">
-                    <label class="fw-semibold fs-5 form-label" >Workshops/Certifications:</label>
-            <input type="number" class="form-control" name="Workshops" required>
-                </div>
-            </div>
-            <div class="row mb-4">
-                <div class="col">
-                    <label class="fw-semibold fs-5 form-label" >Aptitude Test Score:</label>
-            <input type="number" class="form-control" name="AptitudeTestScore" required>
-                </div>
-                <div class="col">
-                    <label class="fw-semibold fs-5 form-label" >Soft Skills Rating:</label>
-            <input type="number" class="form-control" step="0.1" name="SoftSkillsRating" required>
-                </div>
-            </div>
-            <div class="row mb-4">
-                <div class="col">
-                    <label class="fw-semibold fs-5 form-label" >Extracurricular Activities (1=Yes, 0=No):</label>
-            <input type="number" class="form-control" name="ExtracurricularActivities" required>
-                </div>
-                <div class="col">
-                    <label class="fw-semibold fs-5 form-label" >Placement Training(1=Yes, 0=No):</label>
-            <input type="number" class="form-control" name="PlacementTraining" required>
-                </div>
-            </div>
-            <div class="row mb-4">
-                <div class="col">
-                    <label class="fw-semibold fs-5 form-label" >SSC Percentage:</label>
-            <input type="number" class="form-control" step="0.1" name="SSC_Marks" required>
-                </div>
-                <div class="col">
-                    <label class="fw-semibold fs-5 form-label" >HSC Percentage:</label>
-            <input type="number" class="form-control mb-2" step="0.1" name="HSC_Marks" required>
-                </div>
-            </div>
-<button type="submit" class="button">
-    Predict
-  </button>
-        </form>
+            </form>
 
-        {% if prediction_text %}
-            <h3>{{ prediction_text }}</h3>
-        {% endif %}
+            {% if prediction_text %}
+                <h3 class="text-center mt-3">{{ prediction_text }}</h3>
+            {% endif %}
+        </div>
     </div>
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js" integrity="sha384-0pUGZvbkm6XF6gxjEnlmuGrJXVbNuzT9qBBavbLwCsOGabYfZo0T0to5eqruptLy" crossorigin="anonymous"></script>
-</body>
 
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js" integrity="sha384-0pUGZvbkm6XF6gxjEnlmuGrJXVbNuzT9qBBavbLwCsOGabYfZo0T0to5eqruptLy" crossorigin="anonymous"></script>
+</body>
 </html>
